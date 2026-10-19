@@ -646,7 +646,7 @@ def _patch_model_for_physical_time(model):
     )
     if not native_h3:
         raise ComfyH3CompatibilityError(
-            "Ref2VA RoPE correction requires ComfyUI's native "
+            "Ref2VA RoPE correction requires "
             f"MiniMaxH3Model, got {type(diffusion_model).__name__}"
         )
     if not isinstance(getattr(model, "model_options", None), dict):
@@ -792,7 +792,7 @@ def _crop_audio(audio: dict, duration: float) -> dict:
 
 
 class SparkVPack:
-    """Pack native Ref2VA reference-video latent frames without changing size."""
+    """Pack Ref2VA reference-video latent frames without changing size."""
 
     @classmethod
     def INPUT_TYPES(cls):
@@ -846,7 +846,7 @@ class SparkVPack:
                     or video_latent.ndim != 5
                     or dense_t != int(video_latent.shape[2])
                 ):
-                    raise ValueError("native Ref2VA reference video has an invalid latent")
+                    raise ValueError("Ref2VA reference video has an invalid latent")
                 dense_indices = _compression_dense_indices(dense_t, compression_ratio)
                 selected = torch.tensor(
                     dense_indices, dtype=torch.long, device=video_latent.device
@@ -869,7 +869,7 @@ class SparkVPack:
 
         if packed_video_count == 0:
             raise ValueError(
-                "Spark-VPack requires a native MiniMax H3 Ref2VA conditioning "
+                "Spark-VPack requires MiniMax H3 Ref2VA conditioning "
                 "with at least one encoded reference video"
             )
         log.info(

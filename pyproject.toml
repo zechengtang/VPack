@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-spark-vpack"
 version = "0.1.0"
-description = "Fixed-ratio temporal packing for ComfyUI's native MiniMax H3 Ref2VA"
+description = "Fixed-ratio temporal packing for MiniMax H3 Ref2VA reference video"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
 dependencies = []

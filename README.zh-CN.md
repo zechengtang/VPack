@@ -1,12 +1,12 @@
 # Spark-VPack
 
-Spark-VPack 是供 ComfyUI 原生 MiniMax H3 Ref2VA 工作流使用的轻量节点。它只在
+Spark-VPack 是供带参考视频的 MiniMax H3 Ref2VA 工作流使用的轻量 ComfyUI 节点。它只在
 参考视频 latent 的每五帧分组中按档位丢弃时间帧，不缩放、裁剪、解码或编码图像与视频，
 也不修改生成用的 latent。
 
 ## 安装
 
-需要具备原生 MiniMax H3 Ref2VA 功能的 ComfyUI 0.38.0 或更新版本，以及
+需要支持 MiniMax H3 Ref2VA 的 ComfyUI 0.38.0 或更新版本，以及
 Python 3.10 或更新版本。将 `Spark-VPack` 解压到 `ComfyUI/custom_nodes/`，
 然后重启 ComfyUI。
 
@@ -17,11 +17,11 @@ Python 3.10 或更新版本。将 `Spark-VPack` 解压到 `ComfyUI/custom_nodes/
 
 ## 连接方式
 
-1. 使用 ComfyUI 原生的“MiniMax H3 Reference to Video”节点构建条件，并连接
-   视频 VAE 和至少一个参考视频。
-2. 将原生节点的 `positive` 输出和 MiniMax H3 `MODEL` 接入 **Spark-VPack**。
+1. 使用包含至少一个已编码参考视频的 MiniMax H3 Ref2VA 工作流；其 `positive`
+   条件中应通过 `minimax_refs` 提供参考视频。
+2. 将该 `positive` 输出和 MiniMax H3 `MODEL` 接入 **Spark-VPack**。
 3. 将 Spark-VPack 的 `model`、`positive` 输出接入常规调度器和引导器；
-   原生节点的 `latent` 输出直接接入采样器。
+   生成用的 `latent` 仍直接接入采样器。
 
 ## 压缩档位
 
