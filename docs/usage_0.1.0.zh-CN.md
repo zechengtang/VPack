@@ -16,4 +16,4 @@ Spark-VPack 用于带参考视频的 MiniMax H3 Reference to Video（Ref2VA）�
 2. 将该 `positive` 输出接到 Spark-VPack 的 `positive` 输入；将 MiniMax H3 的 `MODEL` 接到 Spark-VPack 的 `model` 输入。
 3. 将 Spark-VPack 输出的 `positive` 和 `model` 接回后续的引导器、采样器等节点。生成用 `latent` 仍直接接到采样器。
 
-`compression_ratio` 是参考视频 latent 的压缩比例。
+`compression_ratio` 控制参考视频的压缩强度。

@@ -1,6 +1,6 @@
 # Spark-VPack
 
-Spark-VPack is a small ComfyUI node for MiniMax H3 Ref2VA workflows with reference video. It drops selected **temporal latent frames** from each five-frame reference chunk. It does not resize, crop, decode, or encode images or video, and it does not change the generated latent.
+Spark-VPack is a ComfyUI node that compresses reference-video conditioning in MiniMax H3 Ref2VA workflows. It can be used with any compatible workflow that supplies an encoded reference video.
 
 ## Install
 
@@ -20,14 +20,14 @@ Double-click empty canvas space, search for `Spark-VPack`, and select it. You ca
 
 **Use `2/5` as the recommended starting point; it is also the default.** In our 1344×768, approximately 4-second, 4-step ikun Ref2VA test, it preserved the character and scene while shortening the four-step DiT sampling segment by about 24% versus `0/5` on SM120. This is a single quick test, so the result will vary with the workflow and hardware.
 
-`compression_ratio` means the number of **reference-video latent temporal frames** dropped from each five-frame chunk. The first frame of every chunk is retained.
+Choose `compression_ratio` to control how strongly the reference video is compressed.
 
-| Setting | Frames kept per chunk | Use |
-| --- | ---: | --- |
-| `0/5` | 5 | No compression; baseline |
-| `1/5` | 4 | Lighter compression |
-| `2/5` | 3 | Recommended balance of consistency and speed |
-| `3/5` | 2 | Stronger compression |
+| Setting | Use |
+| --- | --- |
+| `0/5` | No compression; baseline |
+| `1/5` | Lighter compression |
+| `2/5` | Recommended balance of consistency and speed |
+| `3/5` | Stronger compression |
 
 The matched video and timing comparison currently covers only `0/5` and `2/5`; equivalent quality and speed results for `1/5` and `3/5` are pending.
 
