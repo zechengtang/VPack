@@ -36,8 +36,9 @@ def test_independent_package_contents_and_entry_point(tmp_path):
         spec.loader.exec_module(module)
     finally:
         sys.modules.pop(module_name, None)
-    assert set(module.NODE_CLASS_MAPPINGS) == {"SparkVPack"}
-    assert module.NODE_DISPLAY_NAME_MAPPINGS == {"SparkVPack": "VPack"}
+    assert set(module.NODE_CLASS_MAPPINGS) == {"VPack", "SparkVPack"}
+    assert module.NODE_CLASS_MAPPINGS["VPack"] is module.NODE_CLASS_MAPPINGS["SparkVPack"]
+    assert module.NODE_DISPLAY_NAME_MAPPINGS == {"VPack": "VPack", "SparkVPack": "VPack"}
 
 
 def test_independent_metadata_and_documentation(tmp_path):

@@ -559,7 +559,7 @@ def test_spark_vpack_node_only_exposes_ratio_control():
     assert ratio_input[1]["default"] == "2/5"
     assert SparkVPack.RETURN_TYPES == ("MODEL", "CONDITIONING")
     assert SparkVPack.FUNCTION == "pack"
-    assert NODE_DISPLAY_NAME_MAPPINGS == {"SparkVPack": "VPack"}
+    assert NODE_DISPLAY_NAME_MAPPINGS == {"VPack": "VPack", "SparkVPack": "VPack"}
 
 
 @pytest.mark.parametrize(

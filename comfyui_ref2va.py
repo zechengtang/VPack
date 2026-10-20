@@ -791,7 +791,7 @@ def _crop_audio(audio: dict, duration: float) -> dict:
     }
 
 
-class SparkVPack:
+class VPack:
     """Pack Ref2VA reference-video latent frames without changing size."""
 
     @classmethod
@@ -877,13 +877,16 @@ class SparkVPack:
         return _patch_model_for_physical_time(model), packed_conditioning
 
 
-NODE_CLASS_MAPPINGS = {"SparkVPack": SparkVPack}
+SparkVPack = VPack  # Keep workflows saved with the original node ID loadable.
 
-NODE_DISPLAY_NAME_MAPPINGS = {"SparkVPack": "VPack"}
+NODE_CLASS_MAPPINGS = {"VPack": VPack, "SparkVPack": VPack}
+
+NODE_DISPLAY_NAME_MAPPINGS = {"VPack": "VPack", "SparkVPack": "VPack"}
 
 
 __all__ = [
     "NODE_CLASS_MAPPINGS",
     "NODE_DISPLAY_NAME_MAPPINGS",
+    "VPack",
     "SparkVPack",
 ]
