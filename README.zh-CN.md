@@ -32,3 +32,7 @@ Spark-VPack 是用于压缩 MiniMax H3 Ref2VA 工作流参考视频条件的 Com
 目前同条件视频与耗时对比只覆盖 `0/5` 和 `2/5`；`1/5`、`3/5` 尚未得到相同测试的画质与速度结论。
 
 参考图像和参考视频分辨率、输入帧率、生成分辨率与生成时长由上游工作流处理。
+
+## ❤️ 特别感谢
+
+感谢 [Smthem](https://space.bilibili.com/439655233)、[AI绘画KK](https://space.bilibili.com/313528845)、[AIWood爱屋研究院](https://space.bilibili.com/503934057)、激进派ikun，以及开源社区的各位朋友分享工作流和素材，帮助 VPack 完成了初步验证。

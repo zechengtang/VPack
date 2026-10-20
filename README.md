@@ -32,3 +32,7 @@ Choose `compression_ratio` to control how strongly the reference video is compre
 The matched video and timing comparison currently covers only `0/5` and `2/5`; equivalent quality and speed results for `1/5` and `3/5` are pending.
 
 Reference-image and reference-video resolution, source frame rate, generation resolution, and generation length are handled by the upstream workflow.
+
+## ❤️ Special Thanks
+
+Thanks to [Smthem](https://space.bilibili.com/439655233), [AI绘画KK](https://space.bilibili.com/313528845), [AIWood爱屋研究院](https://space.bilibili.com/503934057), 激进派ikun, and friends across the open-source community for sharing workflows and materials that helped us carry out the initial validation of VPack.
