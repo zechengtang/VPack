@@ -1,5 +1,7 @@
 # Spark-VPack
 
+**English** · [简体中文](README.zh-CN.md)
+
 Spark-VPack is a ComfyUI node that compresses reference-video conditioning in MiniMax H3 Ref2VA workflows. It can be used with any compatible workflow that supplies an encoded reference video.
 
 ## Install

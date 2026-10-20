@@ -1,5 +1,7 @@
 # Spark-VPack
 
+[English](README.md) · **简体中文**
+
 Spark-VPack 是用于压缩 MiniMax H3 Ref2VA 工作流参考视频条件的 ComfyUI 节点。只要工作流提供兼容的已编码参考视频，就可以接入使用。
 
 ## 安装
