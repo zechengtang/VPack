@@ -1,22 +1,22 @@
-# Spark-VPack
+# VPack
 
 **English** · [简体中文](README.zh-CN.md)
 
-Spark-VPack is a ComfyUI node that compresses reference-video conditioning in MiniMax H3 Ref2VA workflows. It can be used with any compatible workflow that supplies an encoded reference video.
+VPack is a ComfyUI node that compresses reference-video conditioning in MiniMax H3 Ref2VA workflows. It can be used with any compatible workflow that supplies an encoded reference video.
 
 ## Install
 
-Requires ComfyUI 0.38.0 or newer with MiniMax H3 Ref2VA support and Python 3.10 or newer. Extract `Spark-VPack` into `ComfyUI/custom_nodes/`, then restart ComfyUI.
+Requires ComfyUI 0.38.0 or newer with MiniMax H3 Ref2VA support and Python 3.10 or newer. If replacing an earlier installation, remove the old plugin folder first. Extract `VPack` into `ComfyUI/custom_nodes/`, then restart ComfyUI.
 
 ## Find the node
 
-Double-click empty canvas space, search for `Spark-VPack`, and select it. You can also find it under `model → conditioning → minimax` in the canvas menu.
+Double-click empty canvas space, search for `VPack`, and select it. You can also find it under `model → conditioning → minimax` in the canvas menu.
 
 ## Connect
 
 1. Use a MiniMax H3 Ref2VA workflow with at least one encoded reference video. Its `positive` conditioning must contain the reference video in `minimax_refs`.
-2. Connect that `positive` output and the MiniMax H3 `MODEL` to **Spark-VPack**.
-3. Connect Spark-VPack's `model` and `positive` outputs to the usual scheduler and guider. Keep the generated `latent` connected directly to the sampler.
+2. Connect that `positive` output and the MiniMax H3 `MODEL` to **VPack**.
+3. Connect VPack's `model` and `positive` outputs to the usual scheduler and guider. Keep the generated `latent` connected directly to the sampler.
 
 ## Compression settings
 

@@ -374,7 +374,7 @@ def _chunk_phase_indices(
 def _compression_dense_indices(
     dense_latent_frames: int, compression_ratio: str
 ) -> list[int]:
-    """Map Spark-VPack's public ratio to its fixed native-token schedule."""
+    """Map VPack's public ratio to its fixed native-token schedule."""
     try:
         phases = COMPRESSION_PROFILES[str(compression_ratio)]
     except KeyError as exc:
@@ -804,7 +804,7 @@ class SparkVPack:
                     list(COMPRESSION_PROFILES),
                     {
                         "default": "2/5",
-                        "tooltip": "Reference video latent compression ratio.",
+                        "tooltip": "Reference-video compression level.",
                     },
                 ),
             },
@@ -814,10 +814,7 @@ class SparkVPack:
     RETURN_NAMES = ("model", "positive")
     FUNCTION = "pack"
     CATEGORY = "model/conditioning/minimax"
-    DESCRIPTION = (
-        "Drop selected latent frames from each five-frame MiniMax-H3 Ref2VA "
-        "reference chunk. Spatial resolution and generated latent are unchanged."
-    )
+    DESCRIPTION = "Compress reference-video conditioning for MiniMax H3 Ref2VA."
 
     def pack(self, model, positive, compression_ratio):
         if compression_ratio not in COMPRESSION_PROFILES:
@@ -869,11 +866,11 @@ class SparkVPack:
 
         if packed_video_count == 0:
             raise ValueError(
-                "Spark-VPack requires MiniMax H3 Ref2VA conditioning "
+                "VPack requires MiniMax H3 Ref2VA conditioning "
                 "with at least one encoded reference video"
             )
         log.info(
-            "Spark-VPack packed %d reference video(s) at ratio %s",
+            "VPack packed %d reference video(s) at ratio %s",
             packed_video_count,
             compression_ratio,
         )
@@ -882,7 +879,7 @@ class SparkVPack:
 
 NODE_CLASS_MAPPINGS = {"SparkVPack": SparkVPack}
 
-NODE_DISPLAY_NAME_MAPPINGS = {"SparkVPack": "Spark-VPack"}
+NODE_DISPLAY_NAME_MAPPINGS = {"SparkVPack": "VPack"}
 
 
 __all__ = [

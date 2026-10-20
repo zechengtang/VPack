@@ -1,4 +1,4 @@
-"""Build a standalone Spark-VPack custom node archive from this repository."""
+"""Build a standalone VPack custom node archive from this repository."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE_NAME = "Spark-VPack"
+PACKAGE_NAME = "VPack"
 PACKAGE_FILES = (
     "LICENSE",
     "README.md",
@@ -51,7 +51,7 @@ def assemble(output_dir: Path, *, version: str, publisher_id: str) -> Path:
 
 
 def make_zip(package_dir: Path, output_dir: Path, *, version: str) -> Path:
-    """Create a deterministic ZIP with a single Spark-VPack root."""
+    """Create a deterministic ZIP with a single VPack root."""
     archive = output_dir / f"{PACKAGE_NAME}-{version}.zip"
     with zipfile.ZipFile(
         archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9

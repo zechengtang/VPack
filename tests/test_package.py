@@ -37,16 +37,16 @@ def test_independent_package_contents_and_entry_point(tmp_path):
     finally:
         sys.modules.pop(module_name, None)
     assert set(module.NODE_CLASS_MAPPINGS) == {"SparkVPack"}
-    assert module.NODE_DISPLAY_NAME_MAPPINGS == {"SparkVPack": "Spark-VPack"}
+    assert module.NODE_DISPLAY_NAME_MAPPINGS == {"SparkVPack": "VPack"}
 
 
 def test_independent_metadata_and_documentation(tmp_path):
     package = assemble(tmp_path, version="1.2.3", publisher_id="publisher")
     metadata = (package / "pyproject.toml").read_text(encoding="utf-8")
-    assert 'name = "comfyui-spark-vpack"' in metadata
+    assert 'name = "comfyui-vpack"' in metadata
     assert 'version = "1.2.3"' in metadata
     assert 'PublisherId = "publisher"' in metadata
-    assert 'DisplayName = "Spark-VPack"' in metadata
+    assert 'DisplayName = "VPack"' in metadata
     assert 'requires-comfyui = ">=0.38.0"' in metadata
     assert "Operating System :: OS Independent" in metadata
 
@@ -59,7 +59,7 @@ def test_independent_metadata_and_documentation(tmp_path):
             package / "comfyui_ref2va_compat.py",
         )
     )
-    assert "spark-vpack" in public_text.casefold()
+    assert "vpack" in public_text.casefold()
     readme_text = "\n".join(
         (package / name).read_text(encoding="utf-8")
         for name in ("README.md", "README.zh-CN.md")
